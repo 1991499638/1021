@@ -7,7 +7,7 @@ import {
 
 } from "react-admin";
 import { dataProvider } from "./dataProvider";
-import { UserList } from "./user";
+import { UserList, UsersCreate } from "./functionality/user";
 import { authProvider } from "./authProvider";
 import MyLoginPage from './MyLoginPage';
 import MyRegisterPage from './MyRegisterPage'
@@ -24,8 +24,8 @@ const checkToken = () => {
     authProvider={authProvider} 
     dataProvider={dataProvider}
     >
-      <Resource name="tasks" list={ListGuesser} />
-      {/* 添加其他资源 */}
+      <Resource name="users" list={UserList} create={UsersCreate}/>
+      {/* <Resource name="customers" list={CustomerList} /> */}
     </Admin>
   ) : (<a href="/login"></a>)
   return IfRenderAdmin; // 如果令牌存在，返回true；否则，返回false
